@@ -9,6 +9,7 @@ public class FootstepSound : MonoBehaviour
     public AudioClip[] footstepsOnStone;
     public AudioClip[] footstepsOnDirt;
     public AudioClip[] footstepsOnFlower;
+    public AudioClip[] footstepsOnWater;
 
     public string material;
 
@@ -44,6 +45,11 @@ public class FootstepSound : MonoBehaviour
                 if (footstepsOnFlower.Length > 0)
                     audioSource.PlayOneShot(footstepsOnFlower[Random.Range(0, footstepsOnFlower.Length)]);
                 break;
+
+            case "Water":
+                if (footstepsOnWater.Length > 0)
+                    audioSource.PlayOneShot(footstepsOnWater[Random.Range(0, footstepsOnWater.Length)]);
+                break;
             default:
                 break;
         }
@@ -58,6 +64,7 @@ public class FootstepSound : MonoBehaviour
             case "Stone":
             case "Dirt":
             case "Flower":
+            case "Water":
                 material = collision.gameObject.tag;
                 break;
 
